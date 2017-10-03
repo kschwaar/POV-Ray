@@ -1,0 +1,70 @@
+
+#declare kidsWall =
+box{<0,0,0>,<20,20,1>
+      texture{
+                pigment{
+                        image_map{
+                                jpeg "wall.jpg"
+                                map_type 0
+                        }
+                        scale 20
+                }
+                normal{
+                        bump_map{
+                                jpeg "wall.jpg"
+                                bump_size 5
+                                interpolate 2
+                                }
+                        scale 20
+                }
+                finish {diffuse 0.20 ambient 0.15 reflection 0.15 phong 0.4}
+        }
+}
+
+object{kidsWall translate<-10,0,-10>}
+object{kidsWall translate<-10,0,-10> rotate<0,90,0>}
+object{kidsWall translate<-10,0,-10> rotate<0,-90,0>}
+object{kidsWall translate<-8,0,10> scale<0.75,1,1>}
+
+object{union{
+sphere{
+        <0,0,0>, 1
+        texture{
+                pigment{ color rgb<1, 1, 0,>}
+                finish{diffuse 0.5 ambient 0.2 reflection 0.35 phong 1}
+                }
+                translate <1.5,1,-2>       
+        } 
+        
+torus {
+        1.5, 0.5
+      
+       texture{
+                pigment{ color rgb<1, 0, 0,>}
+                finish{diffuse 0.5 ambient 0.2 reflection 0.35 phong 1}         
+        }  
+        rotate <90, 160, 0>
+        translate <-1,1.75,3>
+}
+
+box{
+       <-1, -1, -1>, <1,1,1>
+       texture{
+                pigment{ color rgb<0, 1, 0,>}
+                finish{diffuse 0.5 ambient 0.2 reflection 0.35 phong 1}         
+        }
+       translate <2, 1, 2.3>
+}
+
+cone{
+        <0,1,0>, 0, <0,0,0>, 1
+        texture{
+                pigment{ color rgb<0, 0, 1>}
+                finish{diffuse 0.5 ambient 0.2 reflection 0.35 phong 1}         
+        }
+        scale <1, 1.5, 1>
+        translate <-1, 0, -1>
+}}
+scale 0.35
+rotate<0,160,0>
+}
